@@ -11,6 +11,13 @@
     "type": "git",
     "url": "git+https://github.com/nolacoder/Social-Network-API.git"
   },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.13"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
