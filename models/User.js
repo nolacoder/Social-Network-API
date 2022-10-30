@@ -32,7 +32,7 @@ const userSchema = new Schema(
     }
 )
 
-postSchema
+userSchema
     .virtual('friendCount')
     .get(function () {
         return this.friends.length;
