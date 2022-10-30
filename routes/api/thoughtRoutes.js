@@ -21,12 +21,12 @@ router
 
 // /api/thoughts/:thoughtId/reactions
 router
-    .route('/api/thoughts/:thoughtId/reactions')
+    .route('/:thoughtId/reactions')
     .post(createReaction);
 
 // /api/thoughts/:thoughtId/reactions/:reactionId
 router
-    .route('/api/thoughts/:thoughtId/reactions/:reactionId')
+    .route('/:thoughtId/reactions/:reactionId')
     .delete(deleteReaction);
 
   module.exports = router;
