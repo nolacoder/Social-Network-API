@@ -6,8 +6,8 @@ const userSchema = new Schema(
         thoughtText: {
             type: String,
             required: true,
-            min: [1, "Please enter at least one character"],
-            max: [200, "You have exceeded the limit of 200 characters"]
+            min: [1, "Please enter at least one character."],
+            max: [200, "You have exceeded the limit of 200 characters."]
         },
 
         createdAt: {
