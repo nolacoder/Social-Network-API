@@ -1,4 +1,5 @@
 const router = require('express').Router();
+// Imports all necessary functions from the userController.js
 const {
     getUsers,
     createUser,

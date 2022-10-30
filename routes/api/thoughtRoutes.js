@@ -1,4 +1,5 @@
 const router = require('express').Router();
+// Imports all necessary functions from the thoughtController.js
 const {
     getThoughts,
     createThought,

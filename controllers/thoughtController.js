@@ -1,6 +1,9 @@
 const { User, Thought } = require('../models');
 
+// These controllers are used by the thoughtRoutes in the routes/api folder. To make exporting these functions easier they are defined in a module.exports object.
+
 module.exports = {
+    // Gets all thoughts
     getThoughts(req, res) {
         Thought.find()
             .then((thoughts) => res.json(thoughts))
@@ -9,6 +12,7 @@ module.exports = {
                 return res.status(500).json(err);
             });
     },
+    // Creates a single thought
     createThought(req, res) {
         Thought.create(req.body)
             .then((thought) => {
@@ -25,6 +29,7 @@ module.exports = {
                 return res.status(500).json(err);
             });
     },
+    // Gets a single thought
     getSingleThought(req, res) {
         Thought.findOne({ _id: req.params._id })
             .select('-__v')
@@ -35,6 +40,7 @@ module.exports = {
             )
             .catch((err) => res.status(500).json(err));
     },
+    // Updates a single thought
     updateThought(req, res) {
         Thought.findOneAndUpdate(
             { _id: req.params._id },
@@ -48,16 +54,13 @@ module.exports = {
             )
             .catch((err) => res.status(500).json(err));
     },
+    // Deletes a single thought
     deleteThought(req, res) {
         Thought.findOneAndDelete({ _id: req.params._id })
-      .then((thought) =>
-        !thought
-          ? res.status(404).json({ message: 'Could not find a thought with that ID' })
-          : Thought.deleteMany({ _id: { $in: thought.thoughts } })
-      )
-      .then(() => res.json({ message: 'User and thoughts deleted!' }))
+      .then(() => res.json({ message: 'Thought deleted'}))
       .catch((err) => res.status(500).json(err));
     },
+    // Creates a single reaction on a thought
     createReaction(req, res) {
         Thought.findOneAndUpdate(
             { _id: req.params.thoughtId },
@@ -73,6 +76,7 @@ module.exports = {
             )
             .catch((err) => res.status(500).json(err));
     },
+    // Deletes a single reaction from a thought
     deleteReaction(req, res) {
         Thought.findOneAndUpdate(
             { _id: req.params.thoughtId },
